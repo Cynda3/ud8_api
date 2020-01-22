@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/hotel', 'HotelController@index')->name('hotelList');
+Route::post('/hotel', 'HotelController@sendHotel')->name('hotel');
