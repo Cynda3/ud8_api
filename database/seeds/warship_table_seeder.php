@@ -12,7 +12,7 @@ class warship_table_seeder extends Seeder
      */
     public function run()
     {
-        Warship::insert([
+        Warship::create([
             'name' => "USS Missouri",
 	        'class' => "Iowa-class battleship",
             'built' => "New York Naval Shipyard, Brooklyn, New York",
@@ -21,7 +21,7 @@ class warship_table_seeder extends Seeder
             'power' => "212,000 shaft horsepower",
             'speed' => "30 knots",
         ]);
-        Warship::insert([
+        Warship::create([
             'name' => "Musashi",
             'class' => "Yamato-class battleship",
             'built' => "Mitsubishi Shipyard, Nagasaki",
@@ -30,7 +30,7 @@ class warship_table_seeder extends Seeder
             'power' => "12 × Kanpon water-tube boilers",
             'speed' => "27.5 knots",
         ]);
-        Warship::insert([
+        Warship::create([
             'name' => "Bismarck",
             'class' => "Bismarck-class battleship",
             'built' => "Blohm & Voss, Hamburg",

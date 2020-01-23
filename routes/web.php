@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 
-Route::get('/hotel', 'HotelController@index')->name('hotelList');
-Route::post('/hotel', 'HotelController@sendHotel')->name('hotel');
+Route::get('/github', 'GithubController@index')->name('github');
+Route::post('/github/user', 'GithubController@getUser')->name('getUser');

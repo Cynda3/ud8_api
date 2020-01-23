@@ -1,0 +1,302 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "L5 OpenApi",
+        "description": "L5 Swagger OpenApi description",
+        "contact": {
+            "email": "darius@matulionis.lt"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/warships": {
+            "get": {
+                "tags": [
+                    "Warships"
+                ],
+                "summary": "Get list of warships",
+                "description": "Returns list of warships",
+                "operationId": "getWarshipsList",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key_security_example": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Warships"
+                ],
+                "summary": "Store warship information",
+                "description": "Returns warship data",
+                "operationId": "postWarship",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "Warship name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "class",
+                        "in": "path",
+                        "description": "Warship class",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "built",
+                        "in": "path",
+                        "description": "Warship built",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lenght",
+                        "in": "path",
+                        "description": "Warship lenght",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "heigth",
+                        "in": "path",
+                        "description": "Warship heigth",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "power",
+                        "in": "path",
+                        "description": "Warship power",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "speed",
+                        "in": "path",
+                        "description": "Warship speed",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "oauth2_security_example": [
+                            "write:warships",
+                            "read:warships"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/api/warships/{id}": {
+            "get": {
+                "tags": [
+                    "Warships"
+                ],
+                "summary": "Get warship information",
+                "description": "Returns warship data",
+                "operationId": "getWarshipById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Warship id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "oauth2_security_example": [
+                            "write:warships",
+                            "read:warships"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Warships"
+                ],
+                "summary": "Update warship information",
+                "description": "Returns warship data",
+                "operationId": "putWarshipById",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "Warship name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "class",
+                        "in": "path",
+                        "description": "Warship class",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "built",
+                        "in": "path",
+                        "description": "Warship built",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lenght",
+                        "in": "path",
+                        "description": "Warship lenght",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "heigth",
+                        "in": "path",
+                        "description": "Warship heigth",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "power",
+                        "in": "path",
+                        "description": "Warship power",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "speed",
+                        "in": "path",
+                        "description": "Warship speed",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "oauth2_security_example": [
+                            "write:warships",
+                            "read:warships"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Warships"
+                ],
+                "summary": "Delete warship",
+                "description": "Returns warship list",
+                "operationId": "deleteWarshipById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Warship id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "oauth2_security_example": [
+                            "write:warships",
+                            "read:warships"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
