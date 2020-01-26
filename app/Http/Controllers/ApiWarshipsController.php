@@ -56,11 +56,31 @@ class ApiWarshipsController extends Controller
      *      tags={"Warships"},
      *      summary="Store warship information",
      *      description="Returns warship data",
+     *   @OA\RequestBody(
+     *       required=false,
+     *       @OA\MediaType(
+     *           mediaType="application/x-www-form-urlencoded",
+     *           @OA\Schema(
+     *               type="object",
+     *               @OA\Property(
+     *                   property="name",
+     *                   description="Updated name of the pet",
+     *                   type="string"
+     *               ),
+     *               @OA\Property(
+     *                   property="status",
+     *                   description="Updated status of the pet",
+     *                   type="string"
+     *               ),
+     *           )
+     *       )
+     *   ),
      *      @OA\Parameter(
      *          name="name",
      *          description="Warship name",
      *          required=true,
      *          in="path",
+     *          style="form",
      *          @OA\Schema(
      *              type="string"
      *          )
@@ -70,6 +90,7 @@ class ApiWarshipsController extends Controller
      *          description="Warship class",
      *          required=true,
      *          in="path",
+     *          style="form",
      *          @OA\Schema(
      *              type="string"
      *          )
@@ -79,6 +100,7 @@ class ApiWarshipsController extends Controller
      *          description="Warship built",
      *          required=true,
      *          in="path",
+     *          style="form",
      *          @OA\Schema(
      *              type="string"
      *          )
@@ -88,6 +110,7 @@ class ApiWarshipsController extends Controller
      *          description="Warship lenght",
      *          required=true,
      *          in="path",
+     *          style="form",
      *          @OA\Schema(
      *              type="string"
      *          )
@@ -97,6 +120,7 @@ class ApiWarshipsController extends Controller
      *          description="Warship heigth",
      *          required=true,
      *          in="path",
+     *          style="form",
      *          @OA\Schema(
      *              type="string"
      *          )
@@ -106,6 +130,7 @@ class ApiWarshipsController extends Controller
      *          description="Warship power",
      *          required=true,
      *          in="path",
+     *          style="form",
      *          @OA\Schema(
      *              type="string"
      *          )
@@ -115,6 +140,7 @@ class ApiWarshipsController extends Controller
      *          description="Warship speed",
      *          required=true,
      *          in="path",
+     *          style="form",
      *          @OA\Schema(
      *              type="string"
      *          )
