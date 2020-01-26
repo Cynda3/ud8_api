@@ -12,6 +12,11 @@
         },
         "version": "1.0.0"
     },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000"
+        }
+    ],
     "paths": {
         "/api/warships": {
             "get": {
@@ -42,71 +47,45 @@
                 "summary": "Store warship information",
                 "description": "Returns warship data",
                 "operationId": "postWarship",
-                "parameters": [
-                    {
-                        "name": "name",
-                        "in": "path",
-                        "description": "Warship name",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "class",
-                        "in": "path",
-                        "description": "Warship class",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "built",
-                        "in": "path",
-                        "description": "Warship built",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "lenght",
-                        "in": "path",
-                        "description": "Warship lenght",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "heigth",
-                        "in": "path",
-                        "description": "Warship heigth",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "power",
-                        "in": "path",
-                        "description": "Warship power",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "speed",
-                        "in": "path",
-                        "description": "Warship speed",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Write a name of the warship",
+                                        "type": "string"
+                                    },
+                                    "class": {
+                                        "description": "Write a class of the warship",
+                                        "type": "string"
+                                    },
+                                    "built": {
+                                        "description": "Write a built of the warship",
+                                        "type": "string"
+                                    },
+                                    "length": {
+                                        "description": "Write a lenght of the warship",
+                                        "type": "string"
+                                    },
+                                    "height": {
+                                        "description": "Write a height of the warship",
+                                        "type": "string"
+                                    },
+                                    "power": {
+                                        "description": "Write a power of the warship",
+                                        "type": "string"
+                                    },
+                                    "speed": {
+                                        "description": "Write the speed of the warship",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "successful operation"
@@ -173,91 +152,63 @@
                 ],
                 "summary": "Update warship information",
                 "description": "Returns warship data",
-                "operationId": "putWarshipById",
+                "operationId": "updateWarshipById",
                 "parameters": [
                     {
-                        "name": "name",
+                        "name": "id",
                         "in": "path",
-                        "description": "Warship name",
+                        "description": "Warship id",
                         "required": true,
                         "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "class",
-                        "in": "path",
-                        "description": "Warship class",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "built",
-                        "in": "path",
-                        "description": "Warship built",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "lenght",
-                        "in": "path",
-                        "description": "Warship lenght",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "heigth",
-                        "in": "path",
-                        "description": "Warship heigth",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "power",
-                        "in": "path",
-                        "description": "Warship power",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "speed",
-                        "in": "path",
-                        "description": "Warship speed",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
+                            "type": "integer",
+                            "format": "int64"
                         }
                     }
                 ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation"
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "404": {
-                        "description": "Resource Not Found"
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Write a name of the warship",
+                                        "type": "string"
+                                    },
+                                    "class": {
+                                        "description": "Write a class of the warship",
+                                        "type": "string"
+                                    },
+                                    "built": {
+                                        "description": "Write a built of the warship",
+                                        "type": "string"
+                                    },
+                                    "length": {
+                                        "description": "Write a lenght of the warship",
+                                        "type": "string"
+                                    },
+                                    "height": {
+                                        "description": "Write a height of the warship",
+                                        "type": "string"
+                                    },
+                                    "power": {
+                                        "description": "Write a power of the warship",
+                                        "type": "string"
+                                    },
+                                    "speed": {
+                                        "description": "Write the speed of the warship",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
                     }
                 },
-                "security": [
-                    {
-                        "oauth2_security_example": [
-                            "write:warships",
-                            "read:warships"
-                        ]
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
                     }
-                ]
+                }
             },
             "delete": {
                 "tags": [

@@ -18,6 +18,8 @@ use Illuminate\Http\Request;
  *         url="http://www.apache.org/licenses/LICENSE-2.0.html"
  *     )
  * )
+ *
+ * @OA\Server(url="http://127.0.0.1:8000")
  */
 class ApiWarshipsController extends Controller
 {
@@ -57,94 +59,47 @@ class ApiWarshipsController extends Controller
      *      summary="Store warship information",
      *      description="Returns warship data",
      *   @OA\RequestBody(
-     *       required=false,
      *       @OA\MediaType(
-     *           mediaType="application/x-www-form-urlencoded",
+     *           mediaType="multipart/form-data",
      *           @OA\Schema(
-     *               type="object",
      *               @OA\Property(
      *                   property="name",
-     *                   description="Updated name of the pet",
+     *                   description="Write a name of the warship",
      *                   type="string"
      *               ),
      *               @OA\Property(
-     *                   property="status",
-     *                   description="Updated status of the pet",
+     *                   property="class",
+     *                   description="Write a class of the warship",
+     *                   type="string"
+     *               ),
+     *               @OA\Property(
+     *                   property="built",
+     *                   description="Write a built of the warship",
+     *                   type="string"
+     *               ),
+     *               @OA\Property(
+     *                   property="length",
+     *                   description="Write a lenght of the warship",
+     *                   type="string"
+     *               ),
+     *               @OA\Property(
+     *                   property="height",
+     *                   description="Write a height of the warship",
+     *                   type="string"
+     *               ),
+     *               @OA\Property(
+     *                   property="power",
+     *                   description="Write a power of the warship",
+     *                   type="string"
+     *               ),
+     *               @OA\Property(
+     *                   property="speed",
+     *                   description="Write the speed of the warship",
      *                   type="string"
      *               ),
      *           )
      *       )
      *   ),
-     *      @OA\Parameter(
-     *          name="name",
-     *          description="Warship name",
-     *          required=true,
-     *          in="path",
-     *          style="form",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="class",
-     *          description="Warship class",
-     *          required=true,
-     *          in="path",
-     *          style="form",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="built",
-     *          description="Warship built",
-     *          required=true,
-     *          in="path",
-     *          style="form",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="lenght",
-     *          description="Warship lenght",
-     *          required=true,
-     *          in="path",
-     *          style="form",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="heigth",
-     *          description="Warship heigth",
-     *          required=true,
-     *          in="path",
-     *          style="form",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="power",
-     *          description="Warship power",
-     *          required=true,
-     *          in="path",
-     *          style="form",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="speed",
-     *          description="Warship speed",
-     *          required=true,
-     *          in="path",
-     *          style="form",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="successful operation"
@@ -223,83 +178,67 @@ class ApiWarshipsController extends Controller
     /**
      * @OA\Put(
      *      path="/api/warships/{id}",
-     *      operationId="putWarshipById",
+     *      operationId="updateWarshipById",
      *      tags={"Warships"},
      *      summary="Update warship information",
      *      description="Returns warship data",
-     *      @OA\Parameter(
-     *          name="name",
-     *          description="Warship name",
-     *          required=true,
-     *          in="path",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="class",
-     *          description="Warship class",
-     *          required=true,
-     *          in="path",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="built",
-     *          description="Warship built",
-     *          required=true,
-     *          in="path",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="lenght",
-     *          description="Warship lenght",
-     *          required=true,
-     *          in="path",
-     *          @OA\Schema(
-     *              type="string"
-     *          )     *      ),
-     *      @OA\Parameter(
-     *          name="heigth",
-     *          description="Warship heigth",
-     *          required=true,
-     *          in="path",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="power",
-     *          description="Warship power",
-     *          required=true,
-     *          in="path",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="speed",
-     *          description="Warship speed",
-     *          required=true,
-     *          in="path",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Response(
-     *          response=200,
-     *          description="successful operation"
-     *       ),
-     *      @OA\Response(response=400, description="Bad request"),
-     *      @OA\Response(response=404, description="Resource Not Found"),
-     *      security={
-     *         {
-     *             "oauth2_security_example": {"write:warships", "read:warships"}
-     *         }
-     *     },
+    *     @OA\Parameter(
+    *         name="id",
+    *         in="path",
+    *         description="Warship id",
+    *         required=true,
+    *         @OA\Schema(
+    *             type="integer",
+    *             format="int64"
+    *         )
+    *     ),
+    *     @OA\Response(
+    *         response=405,
+    *         description="Invalid input"
+    *     ),
+     *   @OA\RequestBody(
+     *       @OA\MediaType(
+     *           mediaType="application/x-www-form-urlencoded",
+     *           @OA\Schema(
+     *               type="object",
+     *               @OA\Property(
+     *                   property="name",
+     *                   description="Write a name of the warship",
+     *                   type="string"
+     *               ),
+     *               @OA\Property(
+     *                   property="class",
+     *                   description="Write a class of the warship",
+     *                   type="string"
+     *               ),
+     *               @OA\Property(
+     *                   property="built",
+     *                   description="Write a built of the warship",
+     *                   type="string"
+     *               ),
+     *               @OA\Property(
+     *                   property="length",
+     *                   description="Write a lenght of the warship",
+     *                   type="string"
+     *               ),
+     *               @OA\Property(
+     *                   property="height",
+     *                   description="Write a height of the warship",
+     *                   type="string"
+     *               ),
+     *               @OA\Property(
+     *                   property="power",
+     *                   description="Write a power of the warship",
+     *                   type="string"
+     *               ),
+     *               @OA\Property(
+     *                   property="speed",
+     *                   description="Write the speed of the warship",
+     *                   type="string"
+     *               ),
+     *           )
+     *       )
+     *   )
      * )
      * Update the specified resource in storage.
      *
